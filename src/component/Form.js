@@ -1,5 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import Giris from "./Giris";
+import Siparis from "./Siparis";
+import { useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const addForm = {
   name: "Position Absolute Acı Pizza",
@@ -15,7 +19,7 @@ const addForm = {
       edecek bir seçenek bulabilirsiniz. Sıcak ve lezzetli pizzalarımızı
       dilimlerken, keyifli bir yemek deneyimi yaşayacaksınız.`,
     size: ["Küçük", "Orta", "Büyük"],
-    additional: [
+    materials: [
       "Peperoni",
       "Sosis",
       "Kanada Jambonu",
@@ -50,6 +54,11 @@ function Form() {
     setFormData(newformData);
   };
 
+  const history = useHistory();
+  const handleSubmit = () => {
+    history.push("/siparis");
+  };
+
   const changeNumber = (event) => {
     event.preventDefault();
 
@@ -62,192 +71,93 @@ function Form() {
     }
   };
 
+  const choiceMoney = Object.values(formData).reduce((acc, value) => {
+    if (value === true) {
+      return acc + 5;
+    } else {
+      return acc;
+    }
+  }, 0);
+
+  const totalMoney = addForm.price + choiceMoney;
+
   return (
-    <form>
+    <form id="pizza-form" onSubmit={handleSubmit}>
       <div className="form_giris">
-        <h1>Teknolojik Yemekler</h1>
-        <ul>
-          <a href="">Anasayfa</a>
-          <a href="">Seçenekler</a>
-          <a href="">Sipariş Oluştur</a>
-        </ul>
+        <nav>
+          <li>
+            <NavLink to="/">Anasayfa</NavLink>
+          </li>
+          <li>Seçenekler</li>
+          <li>
+            <NavLink to="/pizza">Sipariş Oluştur</NavLink>
+          </li>
+        </nav>
       </div>
       <div className="form_about">
-        <h3>name</h3>
-        <h2>fiyat</h2>
-        <p>İçerik Bilgisi</p>
+        <h3>{addForm.name}</h3>
+        <h2>{addForm.price}</h2>
+        <p>{addForm.content.explanation}</p>
       </div>
       <div className="hamur-boyut">
         <div className="boyut">
-          <p>Boyut Seç *</p>
-          <input
-            onChange={(e) => changeHandler(e)}
-            type="radio"
-            id="kucuk"
-            name="fav_language"
-            value="kucuk"
-          />
-          <label for="kucuk">Küçük</label>
-          <input
-            onChange={(e) => changeHandler(e)}
-            type="radio"
-            id="orta"
-            name="fav_language"
-            value="orta"
-          />
-          <label for="orta">Orta</label>
-          <input
-            onChange={(e) => changeHandler(e)}
-            type="radio"
-            id="buyuk"
-            name="fav_language"
-            value="buyuk"
-          />
-          <label for="buyuk">Büyük</label>
+          <h4>Boyut Seç *</h4>
+          {addForm.content.size.map((size, i) => {
+            return (
+              <label key={i}>
+                {size}
+                <input
+                  onChange={(e) => changeHandler(e)}
+                  type="radio"
+                  name="boyut"
+                  value={size}
+                  checked={formData.boyut === size}
+                />
+              </label>
+            );
+          })}
         </div>
         <div className="hamur">
           <h4>Hamur Seç *</h4>
           <select onChange={(e) => changeHandler(e)} type="text" name="hamur">
-            <option value="Hamur">Hamur Kalınlığı</option>
-            <option value="Kalın">Kalın</option>
-            <option value="Orta">Orta</option>
-            <option value="İnce">İnce</option>
+            <option value={formData.name}>Hamur Kalınlığı</option>
+            {addForm.content.dough.map((dough, i) => {
+              return (
+                <option onChange={(e) => changeHandler(e)} value={dough}>
+                  {dough}
+                </option>
+              );
+            })}
           </select>
         </div>
       </div>
       <div className="ek-malzemeler">
         <h4>Ek Malzemeler</h4>
         <p>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle1"
-          name="vehicle1"
-          value="Pepperoni"
-        />
-        <label for="vehicle1"> Pepperoni</label>
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle2"
-          name="vehicle2"
-          value="Sosis"
-        />
-        <label for="vehicle2"> Sosis</label>
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle3"
-          name="vehicle3"
-          value="Kanada-Jambonu"
-        />
-        <label for="vehicle3"> Kanada Jambonu</label>
-
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle4"
-          name="vehicle4"
-          value="Tavuk-Izgara"
-        />
-        <label for="vehicle4"> Tavuk Izgara</label>
-
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle5"
-          name="vehicle5"
-          value="Sogan"
-        />
-        <label for="vehicle5"> Soğan</label>
-
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle6"
-          name="vehicle6"
-          value="Domates"
-        />
-        <label for="vehicle6"> Domates</label>
-
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle7"
-          name="vehicle7"
-          value="Misir"
-        />
-        <label for="vehicle7"> Mısır</label>
-
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle8"
-          name="vehicle8"
-          value="Sucuk"
-        />
-        <label for="vehicle8"> Sucuk</label>
-
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle9"
-          name="vehicle9"
-          value="Jalepeno"
-        />
-        <label for="vehicle9"> Jalepeno</label>
-
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle10"
-          name="vehicle10"
-          value="Sarimsak"
-        />
-        <label for="vehicle10"> Sarımsak</label>
-
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle11"
-          name="vehicle11"
-          value="Biber"
-        />
-        <label for="vehicle11"> Biber</label>
-
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle12"
-          name="vehicle12"
-          value="Salam"
-        />
-        <label for="vehicle12"> Salam</label>
-
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle13"
-          name="vehicle13"
-          value="Ananas"
-        />
-        <label for="vehicle13"> Ananas</label>
-
-        <input
-          onChange={(e) => changeHandler(e)}
-          type="checkbox"
-          id="vehicle14"
-          name="vehicle14"
-          value="Kabak"
-        />
-        <label for="vehicle14"> Kabak</label>
+        {addForm.content.materials.map((malzemeler, i) => {
+          return (
+            <label key={i}>
+              <input
+                onChange={changeHandler}
+                name={malzemeler}
+                type="checkbox"
+                value={formData.value}
+              />
+              {malzemeler}
+            </label>
+          );
+        })}
       </div>
+
       <div>
         <h4>Sipariş Notu</h4>
-        <label htmlFor="siparisNotu">
-          Siparişinize eklemek istediğiniz bir not var mı?
-        </label>
-        <input type="text" name="siparisNotu" />
+        <label htmlFor="siparisNotu"></label>
+        <input
+          onChange={(e) => changeHandler(e)}
+          type="text"
+          name="siparisNotu"
+          placeholder="Siparişinize eklemek istediğiniz bir not var mı?"
+        />
       </div>
 
       <div className="toplam">
@@ -273,12 +183,14 @@ function Form() {
         <div>
           <h4>Sipariş Toplamı</h4>
           <p>
-            Seçimler <span> 25.00₺</span>
+            Seçimler <span>{choiceMoney}₺</span>
           </p>
           <p>
-            Toplam <span>110.50₺</span>
+            Toplam <span>{totalMoney}₺</span>
           </p>
-          <button>SİPARİŞ VER</button>
+          <button>
+            <a href="./Siparis">SİPARİŞ VER</a>
+          </button>
         </div>
       </div>
     </form>
