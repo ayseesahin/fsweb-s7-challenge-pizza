@@ -48,22 +48,18 @@ export default function Pizza(props) {
     e.preventDefault();
     console.log(formData);
     try {
-      // Form verilerini validate ediyoruz. userSchema yapısı ile kontrol ediyoruz
       await userSchema.validate(formData);
     } catch (err) {
-      // Hata varsa hata mesajını güncelliyoruz
       setHataMesaji(err.message);
       return;
     }
 
-    // Hata yoksa hata mesajını temizliyoruz
     setHataMesaji("");
 
-    // Form verilerini POST ile gönderiyoruz
     axios
       .post("https://reqres.in/api/orders", formData)
       .then(function(response) {
-        // Sipariş başarılı bir şekilde oluşturulduğunda siparişleri güncelliyoruz
+
         props.addSiparis(response.data);
         window.location.href = "/success";
       })
@@ -77,7 +73,7 @@ export default function Pizza(props) {
   return (
     <div className="pizzaDiv">
       <div className="header">
-        <img src="https://raw.githubusercontent.com/frkn8/fsweb-s7-challenge-pizza/78b7d66e6edb4395790bbe0084fff1f8d81fba5c/Assets/logo.svg"></img>
+        <img src="https://raw.githubusercontent.com/ayseesahin/fsweb-s7-challenge-pizza/78b7d66e6edb4395790bbe0084fff1f8d81fba5c/Assets/logo.svg"></img>
       </div>
       <div className="breadcrumbs">
         <div>
@@ -188,7 +184,6 @@ export default function Pizza(props) {
           <div className="row ucuncu-row">
             <div className="column">
               <div>
-                {/* Pizza adetini secmemi saglayan bir button grubu */}
                 <button
                   id="pizza-minus"
                   type="button"
@@ -233,7 +228,7 @@ export default function Pizza(props) {
                   </div>
                 </div>
                 <button id="order-button" type="submit">
-                  Sipariş Ver
+                  SİPARİŞ VER
                 </button>
               </div>
             </div>

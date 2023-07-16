@@ -10,7 +10,7 @@ export default function Anasayfa() {
     <div className="anasayfa">
       <div className="topDiv">
         <div className="description">
-          <img src="https://raw.githubusercontent.com/frkn8/fsweb-s7-challenge-pizza/78b7d66e6edb4395790bbe0084fff1f8d81fba5c/Assets/logo.svg"></img>
+          <img src="https://raw.githubusercontent.com/ayseesahin/fsweb-s7-challenge-pizza/78b7d66e6edb4395790bbe0084fff1f8d81fba5c/Assets/logo.svg"></img>
           <p>fırsatı kaçırma</p>
           <p className="baslik">KOD ACIKTIRIR,</p>
           <p className="baslik">PİZZA DOYURUR</p>

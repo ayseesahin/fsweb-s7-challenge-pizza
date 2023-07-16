@@ -9,15 +9,15 @@ export default function Footer() {
               <div className="column">
                 <h2 className="footer-logo">Teknolojik <br />Yemekler</h2>
                 <div className="adres">
-                  <img src="https://github.com/frkn8/fsweb-s7-challenge-pizza/blob/main/Assets/adv-aseets/icons/icon-1.png?raw=true"></img>
+                  <img src="https://raw.githubusercontent.com/ayseesahin/fsweb-s7-challenge-pizza/main/src/Assets/esnek/icon-1.png"></img>
                   <p>341 Londonderry Road, İstanbul/Türkiye</p>
                 </div>
                 <div className="mail">
-                  <img src="https://github.com/frkn8/fsweb-s7-challenge-pizza/blob/main/Assets/adv-aseets/icons/icon-2.png?raw=true"></img>
+                  <img src="https://raw.githubusercontent.com/ayseesahin/fsweb-s7-challenge-pizza/main/src/Assets/esnek/icon-2.png"></img>
                   <p>aciktim@teknolojikyemekler.com</p>
                 </div>
                 <div className="iletisim">
-                  <img src="https://github.com/frkn8/fsweb-s7-challenge-pizza/blob/main/Assets/adv-aseets/icons/icon-3.png?raw=true"></img>
+                  <img src="https://raw.githubusercontent.com/ayseesahin/fsweb-s7-challenge-pizza/main/src/Assets/esnek/icon-3.png"></img>
                   <p>+90 216 123 45 67</p>
                 </div>
               </div>
@@ -46,29 +46,29 @@ export default function Footer() {
               <div className="insta">
                 <div className="insta1">
                   <img
-                    src="https://github.com/frkn8/fsweb-s7-challenge-pizza/blob/main/Assets/adv-aseets/insta/li-0.png?raw=true"
+                    src="https://raw.githubusercontent.com/ayseesahin/fsweb-s7-challenge-pizza/main/src/Assets/esnek/insta/li-0.png"
                     width={50}
                   ></img>
                   <img
-                    src="https://github.com/frkn8/fsweb-s7-challenge-pizza/blob/main/Assets/adv-aseets/insta/li-1.png?raw=true"
+                    src="https://raw.githubusercontent.com/ayseesahin/fsweb-s7-challenge-pizza/main/src/Assets/esnek/insta/li-1.png"
                     width={50}
                   ></img>
                   <img
-                    src="https://github.com/frkn8/fsweb-s7-challenge-pizza/blob/main/Assets/adv-aseets/insta/li-2.png?raw=true"
+                    src="https://raw.githubusercontent.com/ayseesahin/fsweb-s7-challenge-pizza/main/src/Assets/esnek/insta/li-2.png"
                     width={50}
                   ></img>
                 </div>
                 <div className="insta2">
                   <img
-                    src="https://github.com/frkn8/fsweb-s7-challenge-pizza/blob/main/Assets/adv-aseets/insta/li-3.png?raw=true"
+                    src="https://raw.githubusercontent.com/ayseesahin/fsweb-s7-challenge-pizza/main/src/Assets/esnek/insta/li-3.png"
                     width={50}
                   ></img>
                   <img
-                    src="https://github.com/frkn8/fsweb-s7-challenge-pizza/blob/main/Assets/adv-aseets/insta/li-4.png?raw=true"
+                    src="https://raw.githubusercontent.com/ayseesahin/fsweb-s7-challenge-pizza/main/src/Assets/esnek/insta/li-4.png"
                     width={50}
                   ></img>
                   <img
-                    src="https://github.com/frkn8/fsweb-s7-challenge-pizza/blob/main/Assets/adv-aseets/insta/li-5.png?raw=true"
+                    src="https://raw.githubusercontent.com/ayseesahin/fsweb-s7-challenge-pizza/main/src/Assets/esnek/insta/li-5.png"
                     width={50}
                   ></img>
                 </div>
