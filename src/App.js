@@ -1,33 +1,38 @@
 import React from "react";
-import "./App.css";
-
-import { Switch, Route, Link } from "react-router-dom";
-import Siparis from "./component/Siparis";
-import Giris from "./component/Giris";
-import Form from "./component/Form";
+import { useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Anasayfa from "./component/Anasayfa";
+import Pizza from "./component/Pizza";
+import Success from "./component/Success";
+import Footer from "./component/Footer";
 
 const App = () => {
+  const [siparisler, setSiparisler] = useState([]);
+
+  const handleSiparisEkle = (siparis) => {
+    setSiparisler([...siparisler, siparis]);
+  };
+
   return (
-    <div className="App">
-      <div className="ortak">
-        <h1> Teknolojik Yemekler</h1>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/" />
-            </li>
-            <li>
-              <Link to="/pizza" />
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <Switch>
-        <Route exact path="/" component={Giris}></Route>
-        <Route path="/pizza" component={Form}></Route>
-        <Route path="/siparis" component={Siparis}></Route>
-      </Switch>
-    </div>
+    <>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Anasayfa />
+            <Footer />
+          </Route>
+          <Route path="/pizza">
+            <Pizza addSiparis={handleSiparisEkle} />
+            <Footer />
+          </Route>
+          <Route path="/success">
+            <Success />
+          </Route>
+          
+        </Switch>
+       
+      </Router>
+    </>
   );
 };
 export default App;
